@@ -1,0 +1,79 @@
+:root {
+  --size: 300px;
+}
+
+body {
+  background: rgba (1, 255, 255, 0.3);
+}
+
+.cube {
+  // dans la class cube
+  margin: 12rem auto 0; // Je centre le cube dans le sens horizontal
+  width: var(--size); // 300px
+  height: var(--size);
+  transform-style: preserve-3d;
+  //transform: rotateY(30deg) rotateZ(30deg); // Me permet de créer une rotation sur les images
+  animation: spin 20s infinite linear;
+}
+
+.side {
+  // dans la classe side
+  position: absolute; // toutes les faces seront en position absolute elles vont toutes se placers les unes sur les autres
+  opacity: 0.8;
+  width: var(--size); //300px
+  height: var(--size);
+}
+
+#front {
+  //l'id front
+  background: url(./media/basic-pics/1.jpg) no-repeat center/cover; // l'image prendra tout son élément
+  // si je veux voir mon front étant donné que mes images sont acutellement les unes sur les autres
+  //il faut bouger l'image dans la profondeur dans la moitié de sa taille. Pour ce faire
+  //je fais un calcul sur translateZ, on divise la var size par 2. Donc c'est dynamique !
+  transform: translateZ(calc(var(--size) / 2));
+}
+#top {
+  //l'id top
+  background: url(./media/basic-pics/2.jpg) no-repeat center/cover; // l'image prendra tout son élément
+
+  transform: rotateX(-270deg) translateY(calc(-1 * (var(--size) / 2)));
+  transform-origin: top center;
+}
+#bottom {
+  //l'id bottom
+  background: url(./media/basic-pics/3.jpg) no-repeat center/cover; // l'image prendra tout son élément
+
+  transform: rotateX(270deg) translateY(calc(var(--size) / 2));
+  transform-origin: bottom center;
+}
+#right {
+  //l'id right
+  background: url(./media/basic-pics/4.jpg) no-repeat center/cover; // l'image prendra tout son élément
+
+  transform: rotateY(-270deg) translateX(calc(var(--size) / 2));
+  transform-origin: right center;
+}
+#left {
+  //l'id left
+  background: url(./media/basic-pics/5.jpg) no-repeat center/cover; // l'image prendra tout son élément
+
+  transform: rotateY(270deg) translateX(calc(-1 * (var(--size) / 2)));
+  transform-origin: center left;
+}
+#back {
+  //l'id back
+  background: url(./media/basic-pics/8.jpg) no-repeat center/cover; // l'image prendra tout son élément
+
+  transform: rotateY(-180deg) translateZ(calc(var(--size) / 2));
+  transform-origin: top center;
+}
+
+//Me permet d'animer a 360deg le cube
+@keyframes spin {
+  from {
+    transform: rotateX(0) rotateY(0) rotateZ(0);
+  }
+  to {
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
