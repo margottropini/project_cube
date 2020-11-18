@@ -1,5 +1,12 @@
-#### Démarrer projet avec Sass
+# Projet cube
 
-- `npm run sass`
+Animation 3D
 
-browser-sync start --proxy localhost/**\* --files '**/\*' --no-notify
+Réaliser à l'aide de :
+
+- SCSS
+- JavaScript
+
+# Démarrer projet avec Sass
+
+- `npm run sass`.
